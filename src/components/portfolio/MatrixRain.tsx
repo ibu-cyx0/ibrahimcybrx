@@ -37,10 +37,10 @@ export function MatrixRain() {
       ctx.fillStyle = "rgba(0, 255, 90, 0.5)";
 
       for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
+        const text = chars[Math.floor(Math.random() * chars.length)] ?? "0";
+        const y = drops[i] ?? 0;
+        ctx.fillText(text, i * fontSize, y * fontSize);
+        drops[i] = y * fontSize > canvas.height && Math.random() > 0.975 ? 0 : y + 1;
       }
     };
     raf = requestAnimationFrame(draw);

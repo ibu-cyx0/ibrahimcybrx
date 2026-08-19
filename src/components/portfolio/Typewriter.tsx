@@ -25,7 +25,7 @@ export function RotatingText({ phrases }: { phrases: string[] }) {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const current = phrases[index % phrases.length];
+    const current = phrases[index % phrases.length] ?? "";
     if (!deleting && len === current.length) {
       const id = setTimeout(() => setDeleting(true), 1600);
       return () => clearTimeout(id);
@@ -41,7 +41,7 @@ export function RotatingText({ phrases }: { phrases: string[] }) {
 
   return (
     <span className="text-accent">
-      {phrases[index % phrases.length].slice(0, len)}
+      {(phrases[index % phrases.length] ?? "").slice(0, len)}
       <span className="cursor-blink">&nbsp;</span>
     </span>
   );
