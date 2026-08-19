@@ -203,6 +203,9 @@ function About() {
                 </div>
               ))}
             </dl>
+          </TerminalWindow>
+        </Reveal>
+      </div>
     </section>
   );
 }
