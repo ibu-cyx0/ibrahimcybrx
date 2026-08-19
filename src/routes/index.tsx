@@ -227,11 +227,6 @@ function Education() {
               Namakkal
             </p>
             <p className="text-muted-foreground">
-              <span className="text-accent">[2024-xx]</span>{" "}
-              <span className="text-amber">&gt; AWARD</span> 1st Place, National Cyber Olympiad
-              2024
-            </p>
-            <p className="text-muted-foreground">
               <span className="text-accent">[2025-05]</span>{" "}
               <span className="text-primary">&gt; GRADUATED</span> — status: exit code 0
             </p>
