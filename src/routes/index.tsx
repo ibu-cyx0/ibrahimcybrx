@@ -8,7 +8,6 @@ import {
   Download,
   Terminal,
   ShieldCheck,
-  Award,
   ExternalLink,
   ChevronRight,
 } from "lucide-react";
@@ -204,10 +203,6 @@ function About() {
                 </div>
               ))}
             </dl>
-            <div className="mt-5 flex items-start gap-2 rounded-sm border border-amber/40 bg-amber/10 p-3 font-mono text-xs text-amber">
-              <Award size={16} className="shrink-0" />
-              1st Place — National Cyber Olympiad 2024
-            </div>
           </TerminalWindow>
         </Reveal>
       </div>
@@ -232,11 +227,6 @@ function Education() {
             <p className="text-muted-foreground">
               <span className="text-accent">[institution]</span> Paavai Engineering College,
               Namakkal
-            </p>
-            <p className="text-muted-foreground">
-              <span className="text-accent">[2024-xx]</span>{" "}
-              <span className="text-amber">&gt; AWARD</span> 1st Place, National Cyber Olympiad
-              2024
             </p>
             <p className="text-muted-foreground">
               <span className="text-accent">[2025-05]</span>{" "}
