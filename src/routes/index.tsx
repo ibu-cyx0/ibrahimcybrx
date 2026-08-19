@@ -461,12 +461,12 @@ function Contact() {
               <li className="flex items-center gap-3">
                 <Linkedin size={16} className="text-primary" />
                 <a
-                  href="https://linkedin.com/in/ibu-cyx0"
+                  href="https://www.linkedin.com/in/mohamed-ibrahim-h-585b92282/"
                   target="_blank"
                   rel="noreferrer"
                   className="text-muted-foreground hover:text-accent"
                 >
-                  linkedin.com/in/ibu-cyx0
+                  linkedin.com/in/mohamed-ibrahim-h
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -521,7 +521,7 @@ function Footer() {
           <a href="https://github.com/ibu-cyx0" target="_blank" rel="noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-primary">
             <Github size={18} />
           </a>
-          <a href="https://linkedin.com/in/ibu-cyx0" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary">
+          <a href="https://www.linkedin.com/in/mohamed-ibrahim-h-585b92282/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary">
             <Linkedin size={18} />
           </a>
           <a href="https://tryhackme.com/p/IbrahimCyb3r4" target="_blank" rel="noreferrer" aria-label="TryHackMe" className="text-muted-foreground hover:text-primary">
