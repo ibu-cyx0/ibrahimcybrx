@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-import profileImg from "@/assets/profile-placeholder.jpg";
+import profileImg from "@/assets/profile-photo.jpg";
 import { MatrixRain } from "@/components/portfolio/MatrixRain";
 import { Typewriter, RotatingText } from "@/components/portfolio/Typewriter";
 import { Nav } from "@/components/portfolio/Nav";
@@ -447,8 +447,8 @@ function Contact() {
             <ul className="space-y-4 font-mono text-sm">
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-primary" />
-                <a href="mailto:ibrahim@example.com" className="text-muted-foreground hover:text-accent">
-                  ibrahim@example.com
+                <a href="mailto:ibrahim.cybrx@gmail.com" className="text-muted-foreground hover:text-accent">
+                  ibrahim.cybrx@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
