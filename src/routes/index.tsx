@@ -204,13 +204,6 @@ function About() {
                 </div>
               ))}
             </dl>
-            <div className="mt-5 flex items-start gap-2 rounded-sm border border-amber/40 bg-amber/10 p-3 font-mono text-xs text-amber">
-              <Award size={16} className="shrink-0" />
-              1st Place — National Cyber Olympiad 2024
-            </div>
-          </TerminalWindow>
-        </Reveal>
-      </div>
     </section>
   );
 }
