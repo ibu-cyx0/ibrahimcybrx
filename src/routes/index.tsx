@@ -121,7 +121,7 @@ function Hero() {
             src={profileImg}
             width={768}
             height={768}
-            alt="Mohamed Ibrahim H profile placeholder"
+            alt="Mohamed Ibrahim H"
             className="relative h-36 w-36 rounded-full border-2 border-primary object-cover glow-neon sm:h-44 sm:w-44"
           />
         </div>
