@@ -69,6 +69,7 @@ const PROJECTS = [
     detail:
       "Automated ingestion of IOCs on a schedule, normalisation into a lookup layer, and correlation searches in Splunk that raise alerts when internal telemetry matches known-bad infrastructure. Cuts manual enrichment time during triage.",
     stack: ["python", "splunk", "otx-api", "abuseipdb", "urlhaus"],
+    repo: "https://github.com/ibu-cyx0/CTI-Automation-Platform",
   },
   {
     file: "ai_alert_triage.md",
@@ -77,6 +78,7 @@ const PROJECTS = [
     detail:
       "Trained on labelled alert data with feature engineering across source reputation, asset criticality and alert frequency. Outputs a priority score so analysts work the queue by real risk instead of raw timestamp order.",
     stack: ["python", "scikit-learn", "random-forest", "pandas"],
+    repo: "https://github.com/ibu-cyx0/AI-Powered-Threat-Detection-Engine",
   },
   {
     file: "zero_trust_lab.md",
@@ -85,6 +87,7 @@ const PROJECTS = [
     detail:
       "Segmented lab network with policy enforcement points, identity-aware access rules, continuous monitoring through Wazuh agents, and logging pipelines validating each of the NIST SP 800-207 tenets against simulated attacks.",
     stack: ["pfsense", "wazuh", "nist-800-207", "vlan-segmentation"],
+    repo: "https://github.com/ibu-cyx0/Zero-Trust-Network-Simulation-Lab",
   },
 ];
 
@@ -361,7 +364,7 @@ function Projects() {
                     {expanded ? "collapse" : "view details"}
                   </button>
                   <a
-                    href="https://github.com/ibu-cyx0"
+                    href={p.repo}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-1 text-muted-foreground hover:text-accent"
