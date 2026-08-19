@@ -8,7 +8,6 @@ import {
   Download,
   Terminal,
   ShieldCheck,
-  Award,
   ExternalLink,
   ChevronRight,
 } from "lucide-react";
