@@ -466,7 +466,7 @@ function Contact() {
                   rel="noreferrer"
                   className="text-muted-foreground hover:text-accent"
                 >
-                  linkedin.com/in/ibu-cyx0
+                  linkedin.com/in/mohamed-ibrahim-h
                 </a>
               </li>
               <li className="flex items-center gap-3">
