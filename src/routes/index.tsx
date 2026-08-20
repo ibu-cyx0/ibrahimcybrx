@@ -14,6 +14,7 @@ import {
 import { toast } from "sonner";
 
 import profileImg from "@/assets/profile-photo.jpg";
+import resumeAsset from "@/assets/resume.pdf.asset.json";
 import { MatrixRain } from "@/components/portfolio/MatrixRain";
 import { Typewriter, RotatingText } from "@/components/portfolio/Typewriter";
 import { Nav } from "@/components/portfolio/Nav";
@@ -149,8 +150,8 @@ function Hero() {
             ./view_projects.sh
           </a>
           <a
-            href="/resume.pdf"
-            download
+            href={resumeAsset.url}
+            download="Mohamed-Ibrahim-H-Resume.pdf"
             className="inline-flex items-center gap-2 rounded-sm border border-accent bg-accent/10 px-5 py-2.5 font-mono text-sm text-accent transition-all hover:bg-accent/20 hover:glow-cyan"
           >
             <Download size={14} /> ./download_resume.sh
@@ -492,8 +493,8 @@ function Contact() {
               </li>
             </ul>
             <a
-              href="/resume.pdf"
-              download
+              href={resumeAsset.url}
+              download="Mohamed-Ibrahim-H-Resume.pdf"
               className="mt-6 inline-flex items-center gap-2 rounded-sm border border-accent bg-accent/10 px-4 py-2 font-mono text-xs text-accent transition-all hover:bg-accent/20 hover:glow-cyan"
             >
               <Download size={14} /> download_resume.pdf
