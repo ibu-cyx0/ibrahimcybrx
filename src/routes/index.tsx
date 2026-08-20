@@ -14,6 +14,7 @@ import {
 import { toast } from "sonner";
 
 import profileImg from "@/assets/profile-photo.jpg";
+import resumeAsset from "@/assets/resume.pdf.asset.json";
 import { MatrixRain } from "@/components/portfolio/MatrixRain";
 import { Typewriter, RotatingText } from "@/components/portfolio/Typewriter";
 import { Nav } from "@/components/portfolio/Nav";
