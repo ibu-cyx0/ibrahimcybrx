@@ -430,6 +430,7 @@ function Contact() {
                   </label>
                   <input
                     id={f.id}
+                    name={f.id}
                     type={f.type}
                     required
                     className="mt-1 w-full rounded-sm border border-input bg-background/60 px-3 py-2 font-mono text-sm outline-none focus:border-primary focus:glow-neon"
