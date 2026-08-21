@@ -19,6 +19,7 @@ import { MatrixRain } from "@/components/portfolio/MatrixRain";
 import { Typewriter, RotatingText } from "@/components/portfolio/Typewriter";
 import { Nav } from "@/components/portfolio/Nav";
 import { Reveal, TerminalWindow, Tag, SectionHeading } from "@/components/portfolio/Primitives";
+import { sendContactMessage } from "@/lib/contact.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -384,6 +385,7 @@ function Projects() {
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   return (
     <section id="contact" className="py-20">
@@ -395,10 +397,27 @@ function Contact() {
           <TerminalWindow title="./send_message.sh">
             <form
               className="space-y-4"
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
-                setSent(true);
-                toast.success("Message queued — I'll get back to you soon.");
+                const form = e.currentTarget;
+                const fd = new FormData(form);
+                setSubmitting(true);
+                try {
+                  await sendContactMessage({
+                    data: {
+                      name: String(fd.get("name") ?? ""),
+                      email: String(fd.get("email") ?? ""),
+                      message: String(fd.get("message") ?? ""),
+                    },
+                  });
+                  setSent(true);
+                  form.reset();
+                  toast.success("Message sent — I'll get back to you soon.");
+                } catch {
+                  toast.error("Couldn't send the message. Email me directly instead.");
+                } finally {
+                  setSubmitting(false);
+                }
               }}
             >
               {[
@@ -411,6 +430,7 @@ function Contact() {
                   </label>
                   <input
                     id={f.id}
+                    name={f.id}
                     type={f.type}
                     required
                     className="mt-1 w-full rounded-sm border border-input bg-background/60 px-3 py-2 font-mono text-sm outline-none focus:border-primary focus:glow-neon"
@@ -423,6 +443,7 @@ function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={4}
                   required
                   className="mt-1 w-full rounded-sm border border-input bg-background/60 px-3 py-2 font-mono text-sm outline-none focus:border-primary focus:glow-neon"
@@ -430,9 +451,10 @@ function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full rounded-sm border border-primary bg-primary/10 px-4 py-2.5 font-mono text-sm text-primary transition-all hover:bg-primary/20 hover:glow-neon"
+                disabled={submitting}
+                className="w-full rounded-sm border border-primary bg-primary/10 px-4 py-2.5 font-mono text-sm text-primary transition-all hover:bg-primary/20 hover:glow-neon disabled:cursor-not-allowed disabled:opacity-50"
               >
-                execute ./send_message.sh
+                {submitting ? "sending..." : "execute ./send_message.sh"}
               </button>
               {sent && (
                 <p className="font-mono text-xs text-accent">
