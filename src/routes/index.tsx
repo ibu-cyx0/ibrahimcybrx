@@ -451,9 +451,10 @@ function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full rounded-sm border border-primary bg-primary/10 px-4 py-2.5 font-mono text-sm text-primary transition-all hover:bg-primary/20 hover:glow-neon"
+                disabled={submitting}
+                className="w-full rounded-sm border border-primary bg-primary/10 px-4 py-2.5 font-mono text-sm text-primary transition-all hover:bg-primary/20 hover:glow-neon disabled:cursor-not-allowed disabled:opacity-50"
               >
-                execute ./send_message.sh
+                {submitting ? "sending..." : "execute ./send_message.sh"}
               </button>
               {sent && (
                 <p className="font-mono text-xs text-accent">
