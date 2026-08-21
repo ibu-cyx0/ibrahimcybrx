@@ -397,10 +397,27 @@ function Contact() {
           <TerminalWindow title="./send_message.sh">
             <form
               className="space-y-4"
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
-                setSent(true);
-                toast.success("Message queued — I'll get back to you soon.");
+                const form = e.currentTarget;
+                const fd = new FormData(form);
+                setSubmitting(true);
+                try {
+                  await sendContactMessage({
+                    data: {
+                      name: String(fd.get("name") ?? ""),
+                      email: String(fd.get("email") ?? ""),
+                      message: String(fd.get("message") ?? ""),
+                    },
+                  });
+                  setSent(true);
+                  form.reset();
+                  toast.success("Message sent — I'll get back to you soon.");
+                } catch {
+                  toast.error("Couldn't send the message. Email me directly instead.");
+                } finally {
+                  setSubmitting(false);
+                }
               }}
             >
               {[
