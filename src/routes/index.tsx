@@ -443,6 +443,7 @@ function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={4}
                   required
                   className="mt-1 w-full rounded-sm border border-input bg-background/60 px-3 py-2 font-mono text-sm outline-none focus:border-primary focus:glow-neon"
