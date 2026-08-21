@@ -19,6 +19,7 @@ import { MatrixRain } from "@/components/portfolio/MatrixRain";
 import { Typewriter, RotatingText } from "@/components/portfolio/Typewriter";
 import { Nav } from "@/components/portfolio/Nav";
 import { Reveal, TerminalWindow, Tag, SectionHeading } from "@/components/portfolio/Primitives";
+import { sendContactMessage } from "@/lib/contact.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
