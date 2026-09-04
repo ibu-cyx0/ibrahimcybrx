@@ -160,15 +160,20 @@ function Hero() {
         </div>
 
         <Reveal className="mt-10 w-full max-w-md" delay={200}>
-          <div className="glass-card rounded-md p-4">
+          <a
+            href="https://tryhackme.com/p/IbrahimCyb3r4"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass-card block cursor-pointer rounded-md p-4 transition-all hover:glow-neon hover:bg-primary/5"
+          >
             <div className="flex items-center justify-center gap-3">
               <ShieldCheck className="text-primary" size={20} />
               <div className="text-left font-mono text-xs sm:text-sm">
                 <p className="text-primary">TryHackMe · Top 5% Global</p>
-                <p className="text-muted-foreground">@IbrahimCyb3r4 · 30+ rooms completed</p>
+                <p className="text-muted-foreground">@IbrahimCyb3r4 · 40+ rooms completed</p>
               </div>
             </div>
-          </div>
+          </a>
         </Reveal>
       </div>
     </section>
