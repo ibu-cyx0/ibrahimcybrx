@@ -59,7 +59,7 @@ const CERTS = [
   { name: "Certified SOC Analyst (CSA)", org: "EC-Council" },
   { name: "Ethical Hacking Essentials (EHE)", org: "EC-Council" },
   { name: "Splunk Core Certified User", org: "Splunk" },
-  { name: "CyberOps Associate", org: "Cisco" },
+  { name: "Certified CyberOps Associate", org: "Cisco" },
 ];
 
 const PROJECTS = [
