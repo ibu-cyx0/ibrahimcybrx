@@ -19,7 +19,7 @@ import { MatrixRain } from "@/components/portfolio/MatrixRain";
 import { Typewriter, RotatingText } from "@/components/portfolio/Typewriter";
 import { Nav } from "@/components/portfolio/Nav";
 import { Reveal, TerminalWindow, Tag, SectionHeading } from "@/components/portfolio/Primitives";
-import { sendContactMessage } from "@/lib/contact.functions";
+import { submitContactMessage } from "@/lib/contact.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -408,12 +408,10 @@ function Contact() {
                 const fd = new FormData(form);
                 setSubmitting(true);
                 try {
-                  await sendContactMessage({
-                    data: {
-                      name: String(fd.get("name") ?? ""),
-                      email: String(fd.get("email") ?? ""),
-                      message: String(fd.get("message") ?? ""),
-                    },
+                  await submitContactMessage({
+                    name: String(fd.get("name") ?? ""),
+                    email: String(fd.get("email") ?? ""),
+                    message: String(fd.get("message") ?? ""),
                   });
                   setSent(true);
                   form.reset();
