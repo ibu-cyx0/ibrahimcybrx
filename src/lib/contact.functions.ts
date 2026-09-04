@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
-const contactSchema = z.object({
+export const contactSchema = z.object({
   name: z
     .string()
     .trim()
@@ -20,48 +20,57 @@ const contactSchema = z.object({
     .max(5000, "Message is too long"),
 });
 
+export type ContactInput = z.infer<typeof contactSchema>;
+
 /**
- * Submits the portfolio contact form to Web3Forms, which forwards the
- * details to the owner's Gmail inbox. The Web3Forms access key is a
- * server-side secret (WEB3FORMS_ACCESS_KEY) bound to the destination email,
- * so it never reaches the client bundle.
+ * Returns the Web3Forms access key. Web3Forms' free plan rejects
+ * server-to-server submissions (403 "Use our API in client side"), so the
+ * browser must POST directly. The access key is designed by Web3Forms to be
+ * public: it only identifies the destination inbox and cannot be used to
+ * read anything.
  */
-export const sendContactMessage = createServerFn({ method: "POST" })
-  .inputValidator((input) => contactSchema.parse(input))
-  .handler(async ({ data }) => {
+export const getContactConfig = createServerFn({ method: "GET" }).handler(
+  async () => {
     const accessKey = process.env["WEB3FORMS_ACCESS_KEY"];
     if (!accessKey) {
       throw new Error("Contact form is not configured.");
     }
+    return { accessKey };
+  },
+);
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        access_key: accessKey,
-        name: data.name,
-        email: data.email,
-        message: data.message,
-        subject: `Portfolio contact from ${data.name}`,
-        from_name: "Mohamed Ibrahim H — Portfolio",
-      }),
-    });
+/**
+ * Browser-side submission to Web3Forms. Must run in the client, not in a
+ * server function (see getContactConfig).
+ */
+export async function submitContactMessage(input: ContactInput) {
+  const data = contactSchema.parse(input);
+  const { accessKey } = await getContactConfig();
 
-    if (!response.ok) {
-      throw new Error("Failed to deliver message. Please try again later.");
-    }
-
-    const result = (await response.json()) as {
-      success: boolean;
-      message?: string;
-    };
-
-    if (!result.success) {
-      throw new Error(result.message ?? "Failed to deliver message.");
-    }
-
-    return { success: true as const };
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      access_key: accessKey,
+      name: data.name,
+      email: data.email,
+      message: data.message,
+      subject: `Portfolio contact from ${data.name}`,
+      from_name: "Mohamed Ibrahim H — Portfolio",
+    }),
   });
+
+  const result = (await response.json().catch(() => null)) as {
+    success?: boolean;
+    message?: string;
+  } | null;
+
+  if (!response.ok || !result?.success) {
+    throw new Error(result?.message ?? "Failed to deliver message.");
+  }
+
+  return { success: true as const };
+}
