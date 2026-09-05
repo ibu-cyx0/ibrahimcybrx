@@ -31,7 +31,7 @@ export type ContactInput = z.infer<typeof contactSchema>;
  */
 export const getContactConfig = createServerFn({ method: "GET" }).handler(
   async () => {
-    const accessKey = process.env["WEB3FORMS_ACCESS_KEY"];
+    const accessKey = "a8dc081b-316a-4881-ab33-a7c2b95b3619";
     if (!accessKey) {
       throw new Error("Contact form is not configured.");
     }
