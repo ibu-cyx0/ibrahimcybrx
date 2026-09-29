@@ -230,7 +230,7 @@ function Education() {
         <TerminalWindow title="cat education.log">
           <div className="space-y-2 font-mono text-sm">
             <p className="text-muted-foreground">
-              <span className="text-accent">[2021-08]</span>{" "}
+              <span className="text-accent">[2022-11]</span>{" "}
               <span className="text-primary">&gt; PROGRAM_STARTED</span> — B.E. Cybersecurity
               Engineering
             </p>
@@ -239,7 +239,7 @@ function Education() {
               Namakkal
             </p>
             <p className="text-muted-foreground">
-              <span className="text-accent">[2025-05]</span>{" "}
+              <span className="text-accent">[2026-05]</span>{" "}
               <span className="text-primary">&gt; GRADUATED</span> — status: exit code 0
             </p>
           </div>
