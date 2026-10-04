@@ -77,17 +77,12 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mohamed Ibrahim H — SOC Analyst & Cybersecurity Engineer" },
-      {
-        name: "description",
-        content:
-          "Cybersecurity Engineer and SOC Analyst based in Tamil Nadu, India — blue team, threat hunting and SIEM projects.",
-      },
-      { name: "author", content: "Mohamed Ibrahim H" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://ibrahim-cybrx.is-a.dev/preview.jpg" },
+{ property: "og:image:width", content: "1200" },
+{ property: "og:image:height", content: "627" },
+{ property: "og:url", content: "https://ibrahim-cybrx.is-a.dev/" },
+{ name: "twitter:card", content: "summary_large_image" },
+{ name: "twitter:image", content: "https://ibrahim-cybrx.is-a.dev/preview.jpg" },
     ],
     links: [
       {
