@@ -102,6 +102,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+        {
+          children:
+            "window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };",
+        },
+        { src: "/_vercel/insights/script.js", defer: true },
+      ],
   }),
 
   shellComponent: RootShell,
