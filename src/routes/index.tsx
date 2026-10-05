@@ -232,7 +232,6 @@ function Education() {
             <p className="text-muted-foreground">
               <span className="text-accent">[2022-11]</span>{" "}
               <span className="text-primary">&gt; PROGRAM_STARTED</span> — B.E. Cybersecurity
-              Engineering
             </p>
             <p className="text-muted-foreground">
               <span className="text-accent">[institution]</span> Paavai Engineering College,
