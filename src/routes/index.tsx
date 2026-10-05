@@ -24,7 +24,7 @@ import { submitContactMessage } from "@/lib/contact.functions";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mohamed Ibrahim H — SOC Analyst & Cybersecurity Engineer" },
+      { title: "Mohamed Ibrahim H — SOC Analyst & Threat Hunter" },
       {
         name: "description",
         content:
@@ -44,14 +44,14 @@ export const Route = createFileRoute("/")({
 });
 
 const SKILLS = [
-  { cat: "SIEM & Monitoring", items: ["splunk", "log-analysis", "alert-triage"] },
+  { cat: "SIEM & Monitoring", items: ["splunk", "log-analysis", "alert-triage","incident-response"] },
   { cat: "Network Security", items: ["pfsense", "wireshark", "ids/ips"] },
   { cat: "Threat Intelligence", items: ["alienvault-otx", "abuseipdb", "urlhaus"] },
   { cat: "Frameworks", items: ["nist-sp-800-207", "mitre-att&ck", "zero-trust"] },
-  { cat: "Tools", items: ["wazuh", "cyberops-stack", "nmap"] },
+  { cat: "Tools", items: ["wazuh", "cisco-cyberops", "nmap"] },
   {
     cat: "Soft Skills",
-    items: ["incident-response", "sec-awareness-training", "150+student-seminar"],
+    items: ["security-awareness-training", "seminar-150-students"],
   },
 ];
 
@@ -85,9 +85,9 @@ const PROJECTS = [
   {
     file: "zero_trust_lab.md",
     title: "Zero Trust Network Simulation Lab",
-    short: "Full Zero Trust architecture built on pfSense and Wazuh following NIST SP 800-207.",
+    short: "Zero Trust network simulation: pfSense micro-segmentation, a Python policy engine and Wazuh-style alert correlation, following NIST SP 800-207.",
     detail:
-      "Segmented lab network with policy enforcement points, identity-aware access rules, continuous monitoring through Wazuh agents, and logging pipelines validating each of the NIST SP 800-207 tenets against simulated attacks.",
+      "Four-zone micro-segmented lab (SOC, DEV, MGMT, GUEST) with default-deny pfSense rules, a Python policy engine that checks device trust, MFA, role, source IP and time window, and a monitor that turns access events into alerts mapped to MITRE ATT&CK.",
     stack: ["pfsense", "wazuh", "nist-800-207", "vlan-segmentation"],
     repo: "https://github.com/ibu-cyx0/Zero-Trust-Network-Simulation-Lab",
   },
