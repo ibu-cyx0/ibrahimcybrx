@@ -20,6 +20,7 @@ import { Typewriter, RotatingText } from "@/components/portfolio/Typewriter";
 import { Nav } from "@/components/portfolio/Nav";
 import { Reveal, TerminalWindow, Tag, SectionHeading } from "@/components/portfolio/Primitives";
 import { submitContactMessage } from "@/lib/contact.functions";
+import { ScrollScene } from "@/components/portfolio/ScrollScene";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -96,7 +97,7 @@ const PROJECTS = [
 function Portfolio() {
   return (
     <div className="relative min-h-screen scanlines">
-      <MatrixRain />
+      <ScrollScene fallback={<MatrixRain />} />
       <Nav />
       <main className="mx-auto max-w-6xl px-5 pt-28">
         <Hero />
